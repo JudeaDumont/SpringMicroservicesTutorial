@@ -1,0 +1,14 @@
+
+- first start the discovery service
+- then start 2 inventory services
+- using the application.properties file change the port used between them
+- one with port 8082
+- another with port 0
+- then start the product service
+- then start the order service
+- then use postman to send http://localhost:8081/api/order
+- `{"orderLineItemsDtoList":[{"skuCode":"test","price":9.99,"quantity":1}]}`
+- then kill the discovery-server
+- and run the postman test again. it should be fine, because
+- part of eureka is caching the discoverytable registry clientside.
+- 
