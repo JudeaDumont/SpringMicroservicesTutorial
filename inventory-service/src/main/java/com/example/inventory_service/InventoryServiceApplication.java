@@ -14,6 +14,8 @@ public class InventoryServiceApplication {
 		SpringApplication.run(InventoryServiceApplication.class, args);
 	}
 
+	//This will create duplicates everytime the service is started but I would rather have that then set
+	//	spring.jpa.hibernate.ddl-auto=create-drop
 	@Bean
 	public CommandLineRunner loadData(InventoryRepository inventoryRepository){
 		return args->{
@@ -23,7 +25,7 @@ public class InventoryServiceApplication {
 					.build());
 			inventoryRepository.save(Inventory.builder()
 					.skuCode("test2")
-					.quantity(2)
+					.quantity(0)
 					.build());
 		};
 	}
